@@ -45,12 +45,21 @@ describe("App", () => {
       })
       
       })
-
-      it("will not install the program if there is insufficient space", () => {
-    
-      })
+describe('installProgram', () => {
+  let computer = new Computer();
+  beforeEach(function(done) {
+    computer.installProgram(518,function () {
+      done()
     })
+  })
+  it("will not install the program if there is insufficient space", (done) => {
+    expect(computer.hardDriveSpace).toBe(512);
+    done()
+  })
+})
 
+})
+     
     describe("format", () => {
     const computer = new Computer();
     it("resets the hard drive to 512, even after programs have been installed", () => {
